@@ -1,0 +1,45 @@
+body,
+header,
+h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  background-color: burlywood;
+  margin: 0;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  height: 70vh;
+  width: 30vw;
+  overflow: scroll;
+  border: 8px solid black;
+  border-radius: 5px;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+}
