@@ -2,12 +2,12 @@ body,
 header,
 h1 {
   text-align: center;
+  background-color: burlywood;
   margin: 0;
   padding: 0;
 }
 
 .layout {
-  background-color: burlywood;
   margin: 0;
 }
 
@@ -17,29 +17,76 @@ h1 {
 
 .App {
   width: 100vw;
-  height: 100vh;
-  background-color: burlywood;
+  height: 100%;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
+  padding: 0;
+  height: 80vh;
+  width: 100vw;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .section {
   display: flex;
   flex-direction: column;
 }
 
+.task {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  width: 27vw;
+  border: 3px solid black;
+  border-radius: 5px;
+  background-color: #ece9d4;
+}
+
 .list {
-  height: 70vh;
+  height: 700px;
   width: 30vw;
-  overflow: scroll;
-  border: 8px solid black;
+  border: 5px solid black;
   border-radius: 5px;
   background-color: azure;
+  overflow: auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.formContainer {
+  height: 10vh;
+  border: 2px solid black;
+  width: 40vw;
+  border: 2px solid black;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #ece9d4;
+}
+
+.form {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit {
+  width: 150px;
 }

@@ -72,10 +72,11 @@ function App() {
             {
               data.filter(x => x.status === "TO-DO").map((item) => {
                 return(
-                  <div style={{display: 'flex', justifyContent: "space-evenly"}}> 
+                  <div className="task"> 
                     <Link to={`/${item._id}`}>{item.entry}</Link>
                     <div>
                       Change to:
+                      <br />
                       <button onClick={() => { handleButtons("PENDING", item._id) }}>Pending</button>
                       <button onClick={() => { handleButtons("COMPLETED", item._id) }}>Completed</button>
                     </div>
@@ -91,10 +92,11 @@ function App() {
           {
             data.filter(x => x.status === "PENDING").map((item) => {
               return(
-                <div style={{display: 'flex', justifyContent: "space-evenly"}}> 
+                <div className="task"> 
                  <Link to={`/${item._id}`}>{item.entry}</Link>
                   <div>
                       Change to:
+                      <br />
                       <button onClick={() => { handleButtons("TO-DO", item._id) }}>To-Do</button>
                       <button onClick={() => { handleButtons("COMPLETED", item._id) }}>Completed</button>
                     </div>
@@ -110,10 +112,11 @@ function App() {
           {
             data.filter(x => x.status === "COMPLETED").map((item) => {
               return(
-                <div style={{display: 'flex', justifyContent: "space-evenly"}}> 
+                <div className="task"> 
                   <Link to={`/${item._id}`}>{item.entry}</Link>
                   <div>
                       Change to:
+                      <br />
                       <button onClick={() => { handleButtons("PENDING", item._id) }}>Pending</button>
                       <button onClick={() => { handleButtons("TO-DO", item._id) }}>To-DO</button>
                     </div>
@@ -124,11 +127,11 @@ function App() {
         </div>
       </div>
       </div>
-      <div style={{marginTop: "20px"}}>
-        <form style={{display: "flex", justifyContent: "space-evenly", flexDirection: "column"}}>
+      <div className="formContainer">
+        <form className="form">
           <label>Entry: <input ref={entry} type="text" /></label>
           <label>Status: <input ref={status} type="text" /></label>
-          <button onClick={handleSubmit}>Add</button>
+          <button className='submit' onClick={handleSubmit}>Add</button>
         </form>
       </div>
     </div>

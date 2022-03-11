@@ -12,6 +12,7 @@ Today we will be building the backend API that will provide the information need
 This Express server will be the same thing you all have been doing but instead of rendering our files with the server the frontend client will handle that. This application's purpose is to serve JSON data upon request.
 
 <hr />
+
 ## Getting Started
 
 First we will open up our terminal into the `software_classwork` folder. Once inside that folder run these commands:
