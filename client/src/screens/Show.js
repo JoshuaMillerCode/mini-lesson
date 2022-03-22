@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
@@ -37,9 +38,9 @@ const Show = () => {
   }
 
   return(
-    <div style={{width: "100vw", height: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+    <div className="showPage">
       <Link to="/">Home</Link>
-      <div style={{width: "70vw", height: "60vh", border: "1px solid black", backgroundColor: "azure", display: "inherit", justifyContent: "inherit", alignItems: "inherit", flexDirection: "column"}}> 
+      <div className="taskContainer"> 
         <h1>Entry: {showData.entry}</h1>
         <p>Status: {showData.status}</p>
         <button onClick={handleDelete}>Delete 🔴  </button>

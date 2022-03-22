@@ -12,11 +12,9 @@
 
 ## A little sneak peek of what this will look like at the end.
 
-[
+![Trello Pic](/client/public/trello.png)
 
-INSERT PICTURE HERE
-
-]
+- Styling could be better, but its what it is on the inside that counts.
 
 # Getting Started
 
@@ -224,6 +222,7 @@ h1 {
 .task {
   margin: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   height: 10vh;
@@ -231,6 +230,11 @@ h1 {
   border: 3px solid black;
   border-radius: 5px;
   background-color: #ece9d4;
+}
+
+.button {
+  height: 35px;
+  width: 50px;
 }
 
 .list {
@@ -271,6 +275,27 @@ h1 {
 
 .submit {
   width: 150px;
+}
+
+.showPage {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: burlywood;
+}
+
+.taskContainer {
+  width: 70vw;
+  height: 60vh;
+  border: 1px solid black;
+  background-color: azure;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  flex-direction: column;
 }
 ```
 
@@ -747,3 +772,47 @@ useEffect(() => {
   })();
 }, []);
 ```
+
+## Nice!!! We should have the data from a specific task stored in the `showData` useState variable. Lets display some stuff with that data.
+
+Put the following into the return statement.
+
+```js
+<div className="showPage">
+  <Link to="/">Home</Link>
+  <div className="taskContainer">
+    <h1>Entry: {showData.entry}</h1>
+    <p>Status: {showData.status}</p>
+  </div>
+</div>
+```
+
+## One word, 🔮 ✨ MAGIC ✨ 🔮
+
+Finally lets make our delete functionality. I bet you can tell what we're going to do. Lets make a function called `handleDelete` that will make a request with axios to our delete route.
+
+- First lets establish a try/catch/finally statement.
+
+- Inside on the `try` make a request with axios and insert the id from the useParams hook inside the url string.
+
+- Inside the `catch` console.log the err
+
+- Inside the finally we are going to use another hook called the `useNaviagte` hook from React Router dom which will allow us to navigate to other screens with just a function.
+  - First create the navigate variable at the top of the component and set it equal to useNavigate hook.
+    ```js
+    const navigate = useNavigate();
+    ```
+  - Use the navigate function inside of the finally brackets
+    ```js
+    finally {
+      navigate(-1)
+    }
+    ```
+
+Once we have completed the handleDelete function we can assign it to a delete button. Place this button below everything inside of the taskContainer div.
+
+```js
+<button onClick={handleDelete}>Delete 🔴 </button>
+```
+
+# And just like that we now have our React frontend and Express backend communicating to each other and achieving full CRUD functionality 🎊 CONGRATS 🎊
