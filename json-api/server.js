@@ -13,6 +13,7 @@ app.use("/tasks", taskRouter)
 
 
 
+
 app.listen(PORT, () => {
-  `Listening on port: ${PORT}`
+  console.log(`Listening on port: ${PORT}`)
 })

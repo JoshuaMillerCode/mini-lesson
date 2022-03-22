@@ -161,6 +161,7 @@ Since we are not serving any files we will not not certain routes like Edit, New
 - Read
 
   - GET `/` route that finds and returns everyhting in the Task database
+  - GET `/table` route that will filter our tasks by their status and return the data in a neat object. (This route is key to our frontend functionality.)
   - GET `/:id` route that finds a task based on id and returns the found task
 
 - Update

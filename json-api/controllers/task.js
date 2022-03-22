@@ -16,32 +16,21 @@ router.get('/', (req, res) => {
   })
 })
 
-// router.get('/table', (req, res) => {
-//   // const holder = {
-
-//   // }
-//   Task.find({}, (err, foundTasks) => {
-//     if (!err) {
-//         const formattedData = foundTasks.reduce((acc, item) => {
-//           acc[item.status] = acc[item.status] ? [...acc[item.status], item] : [item]
-//           return acc
-//         }, {})
-//         res.json(formattedData)
-//     } else {
-
-//     }
-//   })
-// })
-
-router.get('/:id', (req, res) => {
-  Task.findById(req.params.id, (err, foundTask) => {
+router.get('/table', (req, res) => {
+ 
+  Task.find({}, (err, foundTasks) => {
     if (!err) {
-      res.status(200).json(foundTask)
+        const formattedData = foundTasks.reduce((acc, item) => {
+          acc[item.status] = acc[item.status] ? [...acc[item.status], item] : [item]
+          return acc
+        }, {})
+        res.status(200).json(formattedData)
     } else {
-      res.status(400).send(err)
+      res.status(400).json(err)
     }
   })
 })
+
 
 
 
@@ -76,6 +65,17 @@ router.delete('/:id', (req, res) => {
   Task.findByIdAndDelete(req.params.id, (err) => {
     if(!err) {
       res.status(200).send({message: "Deleted that task yessirr"})
+    } else {
+      res.status(400).send(err)
+    }
+  })
+})
+
+
+router.get('/:id', (req, res) => {
+  Task.findById(req.params.id, (err, foundTask) => {
+    if (!err) {
+      res.status(200).json(foundTask)
     } else {
       res.status(400).send(err)
     }
